@@ -1,6 +1,6 @@
 {
-  "name": "website",
-  "version": "1.0.0",
+  "name": "boilerthree",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luruke/website.git"
+    "url": "git+https://github.com/luruke/boilerthree.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/luruke/website/issues"
+    "url": "https://github.com/luruke/boilerthree/issues"
   },
-  "homepage": "https://github.com/luruke/website#readme",
+  "homepage": "https://github.com/luruke/boilerthree#readme",
   "devDependencies": {
     "bidello": "0.0.3",
     "detect-gpu": "^1.0.0",
