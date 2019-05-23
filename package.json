@@ -1,0 +1,29 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel serve --no-autoinstall src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luruke/website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luruke/website/issues"
+  },
+  "homepage": "https://github.com/luruke/website#readme",
+  "devDependencies": {
+    "bidello": "0.0.3",
+    "detect-gpu": "^1.0.0",
+    "magicshader": "^0.1.2",
+    "parcel-bundler": "^1.12.3",
+    "three": "^0.104.0"
+  },
+  "dependencies": {}
+}
