@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel serve --no-autoinstall src/index.html",
+    "dev": "parcel src/index.html --no-autoinstall --open",
     "build": "parcel build src/index.html"
   },
   "repository": {
@@ -19,10 +19,14 @@
   },
   "homepage": "https://github.com/luruke/boilerthree#readme",
   "devDependencies": {
-    "bidello": "0.0.3",
+    "bidello": "0.0.5",
     "detect-gpu": "^1.0.0",
+    "glsl-fxaa": "^3.0.0",
+    "glslify-bundle": "^5.1.1",
+    "glslify-deps": "^1.3.1",
     "magicshader": "^0.1.2",
     "parcel-bundler": "^1.12.3",
+    "resource-loader": "^2.2.4",
     "three": "^0.104.0"
   },
   "dependencies": {}

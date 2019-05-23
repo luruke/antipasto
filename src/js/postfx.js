@@ -11,31 +11,10 @@ import {
 } from 'three';
 
 import renderer from './renderer';
+import settings from './settings';
 import { component } from 'bidello';
-
-const vertexShader = `
-precision highp float;
-attribute vec2 position;
-
-void main() {
-  gl_Position = vec4(position, 1.0, 1.0);
-}`;
-
-const fragmentShader = `
-precision highp float;
-uniform sampler2D uScene;
-uniform vec2 uResolution;
-
-void main() {
-  vec2 uv = gl_FragCoord.xy / uResolution.xy;
-  vec3 color = vec3(uv, 1.0);
-  color = texture2D(uScene, uv).rgb;
-
-  // Do your cool postprocessing here
-  color.g += sin(uv.x * 50.0);
-
-  gl_FragColor = vec4(color, 1.0);
-}`;
+import vertexShader from './postfx/postfx.vert';
+import fragmentShader from './postfx/postfx.frag';
 
 class PostFX extends component() {
   init() {
@@ -60,7 +39,12 @@ class PostFX extends component() {
       depthBuffer: true,
     });
 
+    const defines = {};
+
+    settings.fxaa && (defines.FXAA = true);
+
     this.material = new RawShaderMaterial({
+      defines,
       fragmentShader,
       vertexShader,
       uniforms: {

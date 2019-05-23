@@ -1,6 +1,6 @@
 import { Scene } from 'three';
 import { component } from 'bidello';
-import Cube from './cube';
+import Cube from './cube/cube';
 
 class Stage extends component(Scene) {
   init() {
