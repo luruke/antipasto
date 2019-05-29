@@ -20,7 +20,6 @@ class Site extends component() {
 
   onLoadEnd() {
     console.log('finished loader!');
-    console.log(assets.resources);
   }
 }
 

@@ -5,26 +5,34 @@ import deferred from './utils/deferred';
 const Resource = Loader.Resource;
 const RESOURCES = [
   // {
-  //   name: 'audio_cubeup',
-  //   url: 'voo-hub/assets/sound/cube-up.mp3',
-  //   loadType: Resource.LOAD_TYPE.XHR,
-  //   xhrType: Resource.XHR_RESPONSE_TYPE.BLOB,
-  // },
-
-  // {
-  //   name: 'audio_cubedown',
-  //   url: 'voo-hub/assets/sound/cube-down.mp3',
-  //   loadType: Resource.LOAD_TYPE.XHR,
-  //   xhrType: Resource.XHR_RESPONSE_TYPE.BLOB,
+  //   name: 'photo',
+  //   url: require('/assets/photo.jpg')
   // },
 
   {
     name: 'photo',
-    url: require('/assets/photo.jpg')
+    url: require('/assets/photo.glb'),
+    loadType: Resource.LOAD_TYPE.XHR,
+    xhrType: Resource.XHR_RESPONSE_TYPE.BLOB,
   },
 ];
 
+/*
+assets.resources.photo.loading.then(res => {
+  console.log(res.meta.data);
+});
+*/
+
 class Assets {
+  constructor() {
+    this.resources = {};
+
+    RESOURCES.forEach(entry => {
+      this.resources[entry.name] = entry;
+      this.resources[entry.name].loading = deferred();
+    });
+  }
+
   load() {
     this.deferred = deferred();
     this.loader = new Loader();
@@ -41,14 +49,15 @@ class Assets {
     return deferred;
   }
 
-  onProgress() {
+  onProgress(loader, meta) {
     bidello.trigger({ name: 'loadProgress' }, { progress: this.loader.progress });
+    const res = this.resources[meta.name];
+    res.meta = meta;
+    res.loading.resolve(res);
   }
 
   finish() {
-    this.resources = this.loader.resources;
     this.deferred.resolve();
-    
     bidello.trigger({ name: 'loadEnd' }, { resources: this.resources });
   }
 }
