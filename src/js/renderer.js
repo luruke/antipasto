@@ -1,5 +1,6 @@
 import { WebGLRenderer } from 'three';
 import { component } from 'bidello';
+import settings from './settings';
 
 class Renderer extends component(WebGLRenderer) {
   constructor() {
@@ -7,6 +8,8 @@ class Renderer extends component(WebGLRenderer) {
       powerPreference: 'high-performance',
       antialiasing: false,
     })
+
+    this.setPixelRatio(settings.dpr);
   }
 
   onResize({ width, height }) {
