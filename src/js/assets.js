@@ -4,17 +4,17 @@ import deferred from './utils/deferred';
 
 const Resource = Loader.Resource;
 const RESOURCES = [
-  // {
-  //   name: 'photo',
-  //   url: require('/assets/photo.jpg')
-  // },
-
   {
     name: 'photo',
-    url: require('/assets/photo.glb'),
-    loadType: Resource.LOAD_TYPE.XHR,
-    xhrType: Resource.XHR_RESPONSE_TYPE.BLOB,
+    url: require('/assets/photo.jpg')
   },
+
+  //  {
+  //    name: 'photo',
+  //    url: require('/assets/photo.glb'),
+  //    loadType: Resource.LOAD_TYPE.XHR,
+  //    xhrType: Resource.XHR_RESPONSE_TYPE.BLOB,
+  //  },
 ];
 
 /*
