@@ -10,11 +10,11 @@ import {
   Vector2,
 } from 'three';
 
-import renderer from './renderer';
-import settings from './settings';
+import renderer from '../renderer';
+import settings from '../settings';
 import { component } from 'bidello';
-import vertexShader from './postfx/postfx.vert';
-import fragmentShader from './postfx/postfx.frag';
+import vertexShader from './postfx.vert';
+import fragmentShader from './postfx.frag';
 
 class PostFX extends component() {
   init() {
