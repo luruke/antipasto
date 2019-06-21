@@ -7,7 +7,11 @@ class Renderer extends component(WebGLRenderer) {
     super({
       powerPreference: 'high-performance',
       antialiasing: false,
-    })
+    });
+
+    // this.gammaFactor = 2.2;
+    // this.gammaInput = true;
+    // this.gammaOutput = true;
 
     this.setPixelRatio(settings.dpr);
   }

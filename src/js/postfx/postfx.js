@@ -1,6 +1,6 @@
 import {
   WebGLRenderTarget,
-  OrthographicCamera,
+  Camera,
   RGBFormat,
   BufferGeometry,
   BufferAttribute,
@@ -20,7 +20,7 @@ class PostFX extends component() {
   init() {
     this.renderer = renderer;
     this.scene = new Scene();
-    this.dummyCamera = new OrthographicCamera();
+    this.dummyCamera = new Camera();
     this.geometry = new BufferGeometry();
 
     const vertices = new Float32Array([
