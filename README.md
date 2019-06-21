@@ -1,4 +1,4 @@
-# 🥘 boilerthree
+# 🍽 Antipasto 
 
 ⚠️ Still WIP
 Boilerplate for three.js, using some juicy stuff:
