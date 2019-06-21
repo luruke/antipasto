@@ -1,7 +1,6 @@
 # 🍽 Antipasto 
 
-⚠️ Still WIP
-Boilerplate for three.js, using some juicy stuff:
+### Boilerplate for three.js, using some juicy stuff:
 
 - [bidello](https://github.com/luruke/bidello)
 - [magicshader](https://github.com/luruke/magicshader)
@@ -12,3 +11,9 @@ Boilerplate for three.js, using some juicy stuff:
 - [glsl-fxaa](https://github.com/mattdesl/glsl-fxaa)
 - [orbit-control-es6](https://github.com/silviopaganini/orbit-controls-es6)
 - [GPGPU/FBO utility](https://github.com/luruke/boilerthree/blob/master/src/js/utils/fbo.js)
+
+
+```
+npm install
+npm run dev
+```
