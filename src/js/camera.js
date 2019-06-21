@@ -6,7 +6,9 @@ import renderer from './renderer';
 class Camera extends component(PerspectiveCamera) {
   constructor() {
     super(35, 0, 0.1, 500);
-
+  }
+  
+  init() {
     this.position.set(0, 0, 10);
     this.lookAt(new Vector3(0, 0, 0));
     this.initOrbitControl();
@@ -20,8 +22,22 @@ class Camera extends component(PerspectiveCamera) {
     controls.minDistance = 0;
   }
 
+  calculateUnitSize(distance = this.position.z) {
+    const vFov = this.fov * Math.PI / 180;
+    const height = 2 * Math.tan(vFov / 2) * distance;
+    const width = height * this.aspect;
+
+    console.log('calculate ', width);
+
+    return {
+      width,
+      height 
+    };
+  }
+
   onResize({ ratio }) {
     this.aspect = ratio;
+    this.unit = this.calculateUnitSize();
     this.updateProjectionMatrix();
   }
 }

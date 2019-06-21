@@ -1,10 +1,12 @@
-import { component } from 'bidello';
 import {
   Object3D,
   BoxBufferGeometry,
   Mesh
 } from 'three';
+
+import { component } from 'bidello';
 import MagicShader from 'magicshader';
+import camera from '../camera';
 
 export default class extends component(Object3D) {
   init() {
