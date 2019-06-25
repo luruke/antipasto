@@ -1,6 +1,6 @@
 {
-  "name": "boilerthree",
-  "version": "0.0.1",
+  "name": "antipasto",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luruke/boilerthree.git"
+    "url": "git+https://github.com/luruke/antipasto.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/luruke/boilerthree/issues"
+    "url": "https://github.com/luruke/antipasto/issues"
   },
-  "homepage": "https://github.com/luruke/boilerthree#readme",
+  "homepage": "https://github.com/luruke/antipasto#readme",
   "devDependencies": {
     "bidello": "1.0.0",
     "detect-gpu": "^1.0.0",

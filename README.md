@@ -1,4 +1,4 @@
-# 🍽 Antipasto 
+# 🍽 antipasto 
 
 ### Boilerplate for three.js, using some juicy stuff:
 
@@ -10,7 +10,7 @@
 - [resource-loader](https://github.com/englercj/resource-loader)
 - [glsl-fxaa](https://github.com/mattdesl/glsl-fxaa)
 - [orbit-control-es6](https://github.com/silviopaganini/orbit-controls-es6)
-- [GPGPU/FBO utility](https://github.com/luruke/boilerthree/blob/master/src/js/utils/fbo.js)
+- [GPGPU/FBO utility](https://github.com/luruke/antipasto/blob/master/src/js/utils/fbo.js)
 
 
 ```

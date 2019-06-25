@@ -6,7 +6,6 @@ import {
 
 import { component } from 'bidello';
 import MagicShader from 'magicshader';
-import camera from '../camera';
 
 export default class extends component(Object3D) {
   init() {

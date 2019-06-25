@@ -10,9 +10,10 @@ import {
   Vector2,
 } from 'three';
 
-import renderer from '../renderer';
-import settings from '../settings';
 import { component } from 'bidello';
+import renderer from '/js/renderer';
+import settings from '/js/settings';
+import triangle from '/js/utils/triangle';
 import vertexShader from './postfx.vert';
 import fragmentShader from './postfx.frag';
 
@@ -21,15 +22,15 @@ class PostFX extends component() {
     this.renderer = renderer;
     this.scene = new Scene();
     this.dummyCamera = new Camera();
-    this.geometry = new BufferGeometry();
+    // this.geometry = new BufferGeometry();
 
-    const vertices = new Float32Array([
-      -1.0, -1.0,
-      3.0, -1.0,
-      -1.0, 3.0
-    ]);
+    // const vertices = new Float32Array([
+    //   -1.0, -1.0,
+    //   3.0, -1.0,
+    //   -1.0, 3.0
+    // ]);
 
-    this.geometry.addAttribute('position', new BufferAttribute(vertices, 2));
+    // this.geometry.addAttribute('position', new BufferAttribute(vertices, 2));
     this.resolution = new Vector2();
     this.renderer.getDrawingBufferSize(this.resolution);
 
@@ -53,7 +54,7 @@ class PostFX extends component() {
       },
     });
 
-    this.triangle = new Mesh(this.geometry, this.material);
+    this.triangle = new Mesh(triangle, this.material);
     this.triangle.frustumCulled = false;
     this.scene.add(this.triangle);
   }

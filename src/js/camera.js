@@ -1,7 +1,7 @@
 import { PerspectiveCamera, Vector3 } from 'three';
 import { component } from 'bidello';
 import OrbitControls from 'orbit-controls-es6';
-import renderer from './renderer';
+import renderer from '/js/renderer';
 
 class Camera extends component(PerspectiveCamera) {
   constructor() {

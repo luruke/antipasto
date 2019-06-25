@@ -1,6 +1,6 @@
 import Loader from 'resource-loader';
 import bidello from 'bidello';
-import deferred from './utils/deferred';
+import deferred from '/js/utils/deferred';
 
 const Resource = Loader.Resource;
 const RESOURCES = [

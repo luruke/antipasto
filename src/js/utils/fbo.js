@@ -28,9 +28,8 @@ import {
   Scene,
   Mesh,
 } from 'three';
-
-import renderer from '../renderer';
 import MagicShader from 'magicshader';
+import renderer from '/js/renderer';
 
 export const isAvailable = (() => {
   const gl = renderer.getContext();
