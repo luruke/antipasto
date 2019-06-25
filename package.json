@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/luruke/boilerthree#readme",
   "devDependencies": {
-    "bidello": "0.0.5",
+    "bidello": "1.0.0",
     "detect-gpu": "^1.0.0",
     "glsl-fxaa": "^3.0.0",
     "glslify-bundle": "^5.1.1",
@@ -29,7 +29,7 @@
     "parcel-bundler": "^1.12.3",
     "resource-loader": "^2.2.4",
     "math-toolbox": "^1.12.0",
-    "three": "^0.105.1"
+    "three": "^0.105.2"
   },
   "dependencies": {}
 }

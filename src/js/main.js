@@ -1,5 +1,4 @@
-import * as helpers from 'bidello/helpers';
-import pointer from './utils/pointer';
+import * as helpers from './bidello';
 import renderer from './renderer';
 import camera from './camera';
 import scene from './scene';

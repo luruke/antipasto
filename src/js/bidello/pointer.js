@@ -1,7 +1,7 @@
+import bidello from 'bidello';
 import { Vector2, Vector3} from 'three';
 import { clamp } from 'math-toolbox';
-import { viewport } from 'bidello/helpers';
-import bidello from 'bidello';
+import { viewport } from './viewport';
 import camera from '../camera';
 
 class Pointer {
@@ -160,4 +160,4 @@ class Pointer {
   }
 }
 
-export default new Pointer();
+export const pointer = new Pointer();
