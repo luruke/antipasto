@@ -23,13 +23,15 @@ import {
   FloatType,
   HalfFloatType,
   Camera,
-  BufferGeometry,
-  BufferAttribute,
   Scene,
   Mesh,
+  PlaneBufferGeometry,
+  MeshBasicMaterial,
 } from 'three';
 import MagicShader from 'magicshader';
 import renderer from '/js/renderer';
+import triangle from './triangle';
+import camera from '/js/camera';
 
 export const isAvailable = (() => {
   const gl = renderer.getContext();
@@ -55,16 +57,11 @@ export default class FBO {
     data,
     name,
     shader,
-    uniforms = {}
+    uniforms = {},
+    rtOptions = {},
+    debug = false
   }) {
     this.options = arguments[0];
-
-    const vertices = new Float32Array([
-      -1.0, -1.0,
-      3.0, -1.0,
-      -1.0, 3.0
-    ]);
-
     this.renderer = renderer;
     this.camera = new Camera();
     this.scene = new Scene();
@@ -81,9 +78,6 @@ export default class FBO {
     this.texture.needsUpdate = true;
 
     this.rt = [this.createRT(), this.createRT()];
-
-    this.geometry = new BufferGeometry();
-    this.geometry.addAttribute('position', new BufferAttribute(vertices, 2));
 
     this.material = new MagicShader({
       name: name || 'FBO',
@@ -107,6 +101,7 @@ export default class FBO {
       fragmentShader: shader || `
         precision highp float;
         uniform sampler2D texture;
+
         void main() {
           vec2 uv = gl_FragCoord.xy / RESOLUTION.xy;
           gl_FragColor = texture2D(texture, uv);
@@ -114,19 +109,37 @@ export default class FBO {
       `,
     });
 
-    this.mesh = new Mesh(this.geometry, this.material);
+    this.mesh = new Mesh(triangle, this.material);
     this.mesh.frustumCulled = false;
     this.scene.add(this.mesh);
+
+    if (this.options.debug) {
+      this.initDebug();
+    }
+  }
+
+  initDebug() {
+    this.debugGeometry = new PlaneBufferGeometry(2, 2);
+    this.debugMaterial = new MeshBasicMaterial({
+      map: this.target,
+    });
+
+    this.debugMesh = new Mesh(this.debugGeometry, this.debugMaterial);
+    this.debugMesh.position.set(0, 0, -5);
+
+    camera.add(this.debugMesh);
   }
 
   createRT() {
-    return new WebGLRenderTarget(this.options.width, this.options.height, {
+    return new WebGLRenderTarget(this.options.width, this.options.height, Object.assign({
       minFilter: NearestFilter,
       magFilter: NearestFilter,
       stencilBuffer: false,
       depthBuffer: false,
+      depthWrite: false,
+      depthTest: false,
       type,
-    });
+    }, this.options.rtOptions));
   }
 
   get target() {
@@ -135,6 +148,17 @@ export default class FBO {
 
   get uniforms() {
     return this.material.uniforms;
+  }
+  
+  // TODO: test...
+  resize(width, height) {
+    this.material.defines.RESOLUTION = `vec2(${width.toFixed(1)}, ${height.toFixed(1)})`;
+    this.options.width = width;
+    this.options.height = height;
+
+    this.rt.forEach(rt => {
+      rt.setSize(width, height);
+    });
   }
 
   update(switchBack = true) {
