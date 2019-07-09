@@ -27,8 +27,6 @@ class Camera extends component(PerspectiveCamera) {
     const height = 2 * Math.tan(vFov / 2) * distance;
     const width = height * this.aspect;
 
-    console.log('calculate ', width);
-
     return {
       width,
       height 
