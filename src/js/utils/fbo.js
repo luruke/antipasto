@@ -57,6 +57,7 @@ export default class FBO {
     data,
     name,
     shader,
+    texture,
     uniforms = {},
     rtOptions = {},
     debug = false
@@ -67,7 +68,7 @@ export default class FBO {
     this.scene = new Scene();
     this.index = 0;
     this.copyData = true;
-    this.texture = new DataTexture(
+    this.texture = texture || new DataTexture(
       data || new Float32Array((width * height * 4)),
       width,
       height,
