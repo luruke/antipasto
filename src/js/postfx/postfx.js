@@ -2,8 +2,6 @@ import {
   WebGLRenderTarget,
   Camera,
   RGBFormat,
-  BufferGeometry,
-  BufferAttribute,
   Mesh,
   Scene,
   RawShaderMaterial,
@@ -22,15 +20,6 @@ class PostFX extends component() {
     this.renderer = renderer;
     this.scene = new Scene();
     this.dummyCamera = new Camera();
-    // this.geometry = new BufferGeometry();
-
-    // const vertices = new Float32Array([
-    //   -1.0, -1.0,
-    //   3.0, -1.0,
-    //   -1.0, 3.0
-    // ]);
-
-    // this.geometry.addAttribute('position', new BufferAttribute(vertices, 2));
     this.resolution = new Vector2();
     this.renderer.getDrawingBufferSize(this.resolution);
 

@@ -10,6 +10,6 @@ const vertices = new Float32Array([
 ]);
 
 const geometry = new BufferGeometry();
-geometry.addAttribute('position', new BufferAttribute(vertices, 2));
+geometry.setAttribute('position', new BufferAttribute(vertices, 2));
 
 export default geometry;
