@@ -51,11 +51,13 @@ export default class extends component(Object3D) {
       `,
       fragmentShader: `
         precision highp float;
-    
+        
+        uniform vec3 colorA; // ms({ value: '#ff0000' })
+        uniform vec3 colorB; // ms({ value: '#00ff00' })
         varying float vForce;
     
         void main() {
-          gl_FragColor = vec4(mix(vec3(1.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0), vForce), 1.0);
+          gl_FragColor = vec4(mix(colorA, colorB, vForce), 1.0);
         }
       `,
       uniforms: {
