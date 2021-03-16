@@ -1,5 +1,8 @@
 # 🍽 antipasto 
 
+> ⚠️ probably won't work with modern version of threejs, last time I tested was with r114  
+> pr is welcome
+
 ### Boilerplate for three.js, using some juicy stuff:
 
 - [bidello](https://github.com/luruke/bidello)
